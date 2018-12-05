@@ -1,0 +1,31 @@
+testcaptcha.com
+
+Clés:
+
+clé du site: (Utilisez la clé dans le code HTML.)
+
+6LePkn0UAAAAAAWYCA4gvlGJMRrF7vHCkxDgiMNy
+
+Clé secrète:(Utilisez cette clé pour toute communication entre notre site et Google. Veillez à ne pas la divulguer, car il s'agit d'une clé secrète)
+
+6LePkn0UAAAAAN0FRHqv4D-03JM353m8FO6LJGpt
+
+Etape 1: intégration côté client:(Collez l'extrait avant la balise fermante </head> sur votre modèle HTML)
+
+ <script src='https://www.google.com/recaptcha/api.js'></script>
+
+Collez cet extrait après la balise <form>, là où vous souhaitez que le widget reCAPTCHA s'affiche :
+
+<div class="g-recaptcha" data-sitekey="6LePkn0UAAAAAAWYCA4gvlGJMRrF7vHCkxDgiMNy"></div>
+
+Etape: 2:Intégration côté serveur:
+
+Lorsque vos utilisateurs envoient le formulaire dans lequel vous avez intégré reCAPTCHA, vous recevez une chaîne de texte intitulée "g-recaptcha-response" parmi les données utiles. 
+Pour savoir si cet utilisateur a été validé par Google, envoyez une demande POST avec les paramètres suivants :
+URL : https://www.google.com/recaptcha/api/siteverify
+
+secret (obligatoire)	               6LePkn0UAAAAAN0FRHqv4D-03JM353m8FO6LJGpt
+response (obligatoire)	               La valeur "g-recaptcha-response"
+remoteip	                       Adresse IP de l'utilisateur final
+
+Le site de documentation reCAPTCHA propose des informations plus détaillées et des configurations avancées.
